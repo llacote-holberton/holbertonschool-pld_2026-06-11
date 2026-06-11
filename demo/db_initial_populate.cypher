@@ -1,0 +1,12 @@
+CREATE (alice:Person {name:'Alice', age:28})
+CREATE (bob:Person {name:'Bob', age:34})
+CREATE (inception:Movie {title:'Inception', annee:2010})
+CREATE (matrix:Movie {title:'The Matrix', annee:1999})
+CREATE (scifi:Genre {name:'Sci-Fi'})
+WITH alice, bob, inception, matrix, scifi
+CREATE (alice)-[:FRIENDS_WITH]->(bob)
+CREATE (alice)-[:WATCHED {note:9, termine:true}]->(inception)
+CREATE (alice)-[:WATCHED {note:8, termine:true}]->(matrix)
+CREATE (bob)-[:WATCHED {note:7, termine:false}]->(inception)
+CREATE (inception)-[:IN_GENRE]->(scifi)
+CREATE (matrix)-[:IN_GENRE]->(scifi)
